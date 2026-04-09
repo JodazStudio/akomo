@@ -46,6 +46,22 @@
 - The project appears to be a marketplace or currency rate tracking application ("OtraAppDelDolarVzla" directory name suggests dollar rates, "AKomo" is the new branding).
 - **Recent Focus**: UI/UX enhancements, responsive design, and branding updates (renaming to AKomo).
 - **Backend Features**: Includes scripts for synchronizing currency logic (Binance, BCV).
+- **Authentication**: Project-based API Key system using SHA-256 hashing.
+
+## Key Management
+
+### Project Creation
+Authorized clients (like the mobile app) must have a project entry in Supabase and use an `x-api-key` header.
+
+To create a new project:
+```bash
+pnpm create:project "Project Name" [--test]
+```
+
+### Authentication Logic
+- **Header**: `x-api-key`
+- **Global Guard**: `ProjectAuthGuard` enforces validation on all routes except those marked with `@IsPublic()`.
+- **Database Table**: `projects` (uuid, name, key_hash, prefix, is_active, created_at, last_used_at).
 
 ## Rules & Standards
 - **Package Manager**: `pnpm` (Global preference). `npm` used specifically for syncing mobile `package-lock.json` if needed.
