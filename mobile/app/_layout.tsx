@@ -74,6 +74,7 @@ function RootLayoutNav() {
       case '/info': return 'Información';
       case '/builds': return 'Descargas';
       case '/history': return 'Historial';
+      case '/calculator': return 'Calculadora';
       case '/modal': return 'Detalles';
       case '/privacy-policy': return 'Privacidad';
       default: return 'Tasas';
@@ -105,6 +106,7 @@ function RootLayoutNav() {
             <Stack.Screen name="builds" options={{ headerShown: false }} />
             <Stack.Screen name="privacy-policy" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)/history" options={{ headerShown: false }} />
+            <Stack.Screen name="calculator" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
           </Stack>
         </GradientBackground>
