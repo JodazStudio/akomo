@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, Platform, useWindowDimensions } from 'react-native';
 import { Text } from '@/components/Themed';
 import { useRouter, usePathname } from 'expo-router';
-import { Home, HelpCircle, BarChart3 } from 'lucide-react-native';
+import { Home, HelpCircle, BarChart3, Calculator } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export function TopHeader() {
@@ -23,6 +23,7 @@ export function TopHeader() {
 
   const isHomeActive = pathname === '/' || pathname === '/index';
   const isHistoryActive = pathname === '/history' || pathname.includes('history');
+  const isCalculatorActive = pathname === '/calculator';
   const isInfoActive = pathname === '/info';
 
   return (
@@ -38,6 +39,10 @@ export function TopHeader() {
         <View style={styles.navIcons}>
           <TouchableOpacity onPress={() => navigateTo('index')} style={styles.iconBtn}>
             <Home size={22} color={isHomeActive ? activeColor : inactiveColor} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigateTo('calculator')} style={styles.iconBtn}>
+            <Calculator size={22} color={isCalculatorActive ? activeColor : inactiveColor} />
           </TouchableOpacity>
 
           {/* History button */}
